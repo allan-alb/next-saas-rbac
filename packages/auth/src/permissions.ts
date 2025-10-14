@@ -9,13 +9,22 @@ type PermissionsByRole = (
 ) => void
 
 export const permissions: Record<Role, PermissionsByRole> = {
-  ADMIN: (_, { can }) => {
+  ADMIN: (user, { can, cannot }) => {
     can('manage', 'all') // read-write access to everything
+
+    cannot(['transfer_ownership', 'update'], 'Organization')
+    can(['transfer_ownership', 'update'], 'Organization', {
+      ownerId: { $eq: user.id },
+    })
+    // when we allow everything, the 'cannot' permissions can't have conditionals
+    // that's why we disallow transfer_ownership first, then allow it conditionally
   },
   MEMBER: (user, { can }) => {
-    // can('invite', 'User')
-    can(['create', 'get'], 'Project')
+    can('get', 'User')
+    can(['get', 'create'], 'Project')
     can(['update', 'delete'], 'Project', { ownerId: { $eq: user.id } })
   },
-  BILLING: () => {},
+  BILLING: (_, { can }) => {
+    can('manage', 'Billing')
+  },
 }

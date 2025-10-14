@@ -1,12 +1,10 @@
-import { defineAbilityFor } from '@saas/auth'
+import { defineAbilityFor, projectSchema } from '@saas/auth'
 
-const ability = defineAbilityFor({ role: 'ADMIN' })
+const ability = defineAbilityFor({ role: 'MEMBER', id: '123' })
 
-// const userCanInviteSomeoneElse = ability.can('invite', 'User')
-const userCanDeleteUser = ability.can('delete', 'User')
+const project = projectSchema.parse({ id: '1', ownerId: '123' })
 
-const userCannotDeleteUser = ability.cannot('delete', 'User')
-
-// console.log(userCanInviteSomeoneElse)
-console.log(userCanDeleteUser)
-console.log(userCannotDeleteUser)
+console.log(ability.can('get', 'Billing'))
+console.log(ability.can('create', 'Invite'))
+// console.log(ability.can('delete', 'Project')) // will return true
+console.log(ability.can('delete', project))
