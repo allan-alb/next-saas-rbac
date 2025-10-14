@@ -1,9 +1,17 @@
 {
   "name": "@saas/api",
   "version": "1.0.0",
+  "scripts": {
+    "dev": "tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "@saas/auth": "workspace:*"
+  },
   "devDependencies": {
     "@saas/eslint-config": "workspace:*",
-    "@saas/tsconfig": "workspace:*"
+    "@saas/tsconfig": "workspace:*",
+    "@types/node": "^24.7.2",
+    "tsx": "^4.20.6"
   },
   "prettier": "@saas/eslint-config/prettier"
 }
