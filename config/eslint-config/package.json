@@ -20,5 +20,20 @@
     "globals": "^16.3.0",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.40.0"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": false,
+    "singleQuote": true,
+    "quoteProps": "consistent",
+    "jsxSingleQuote": false,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "arrowParens": "always",
+    "endOfLine": "auto",
+    "embeddedLanguageFormatting": "auto"
   }
 }
