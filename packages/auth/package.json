@@ -8,5 +8,8 @@
     "@saas/eslint-config": "workspace:*",
     "@saas/tsconfig": "workspace:*"
   },
-  "prettier": "@saas/eslint-config/prettier"
+  "prettier": "@saas/eslint-config/prettier",
+  "dependencies": {
+    "@casl/ability": "^6.7.3"
+  }
 }
