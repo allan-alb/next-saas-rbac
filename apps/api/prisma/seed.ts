@@ -1,4 +1,4 @@
-import { fa, faker } from '@faker-js/faker'
+import { faker } from '@faker-js/faker'
 import { hash } from 'bcryptjs'
 import { PrismaClient } from '../src/generated/prisma'
 
@@ -45,6 +45,7 @@ async function seed() {
   await prisma.organization.create({
     data: {
       name: 'Acme Corp',
+      domain: 'acmecorp.com',
       slug: 'acme-corp',
       avatarUrl: faker.image.urlPicsumPhotos({ width: 400, height: 400 }),
       shouldAttachUsersByDomain: true,
@@ -112,6 +113,7 @@ async function seed() {
   await prisma.organization.create({
     data: {
       name: 'Acme Inc',
+      domain: 'acmeinc.com',
       slug: 'acme-inc',
       avatarUrl: faker.image.urlPicsumPhotos({ width: 400, height: 400 }),
       shouldAttachUsersByDomain: true,
@@ -179,6 +181,7 @@ async function seed() {
   await prisma.organization.create({
     data: {
       name: 'Acme Com',
+      domain: 'acmecom.com',
       slug: 'acme-com',
       avatarUrl: faker.image.urlPicsumPhotos({ width: 400, height: 400 }),
       shouldAttachUsersByDomain: true,
